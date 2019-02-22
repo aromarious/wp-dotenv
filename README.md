@@ -69,7 +69,7 @@ From the root of your project, you will be able to run the following composer co
 
 * ***composer generate-config-with-salts*** - As above, but will also generate the salts automatically. This is a handy  command to use when starting a new project, but it can be used at any time.
 
-* ***composer generate-config-with-salts*** - This command will locate index.php file to `APP_DOCROOT`. This requires `APP_DOCROOT` and `APP_CORE` to be set in the .env file.
+* ***composer generate-index** - This command will locate index.php file to `APP_DOCROOT`. This requires `APP_DOCROOT` and `APP_CORE` to be set in the .env file.
 
 ## Config
 
