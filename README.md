@@ -1,6 +1,7 @@
 # WP Dotenv
 
-This is a private revised version of WP Dotenv of scottjs/wp-dotenv. Thanks scottjs.
+*This is a private revised version of WP Dotenv of scottjs/wp-dotenv.* Thanks scottjs.
+
 Inspired by Laravel 5, WP Dotenv enables WordPress to use .env files for its configuration instead of wp-config.php.
 The original is useful if you're planning on using [scottjs/db-sync](https://github.com/scottjs/db-sync) or [scottjs/helper-scripts](https://github.com/scottjs/helper-scripts) with WordPress, but this version omits the function.
 
