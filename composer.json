@@ -1,0 +1,26 @@
+{
+	"name": "aromarious/wp-dotenv",
+	"description": "Helper scripts to enable WordPress to use dotenv config files, similar to Laravel 5, using code of scottjs/wp-dotenv. thanks scottjs",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "aromarious",
+			"email": "6535448+aromarious@users.noreply.github.com"
+		}
+	],
+	"require": {
+		"vlucas/phpdotenv": "^2.2"
+	},
+	"scripts": {
+		"generate-config" : [
+			"vendor/aromarious/wp-dotenv/generate-config.sh"
+		],
+		"generate-config-with-salts" : [
+			"vendor/aromarious/wp-dotenv/generate-config.sh salts"
+		],
+		"generate-index" : [
+			"vendor/aromarious/wp-dotenv/generate-index.sh"
+		]
+	},
+	"minimum-stability": "dev"
+}
