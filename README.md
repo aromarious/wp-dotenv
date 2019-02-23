@@ -1,6 +1,6 @@
 # WP Dotenv
 
-*This is a private revised version of WP Dotenv of scottjs/wp-dotenv.* Thanks scottjs.
+*This is a private revised version of WP Dotenv of [scottjs/wp-dotenv]*(https://github.com/scottjs/wp-dotenv).* Thanks scottjs.
 
 Inspired by Laravel 5, WP Dotenv enables WordPress to use .env files for its configuration instead of wp-config.php.
 The original is useful if you're planning on using [scottjs/db-sync](https://github.com/scottjs/db-sync) or [scottjs/helper-scripts](https://github.com/scottjs/helper-scripts) with WordPress, but this version omits the function.
@@ -59,6 +59,8 @@ DB_HOST=localhost
 DB_DATABASE=example
 DB_USERNAME=root
 DB_PASSWORD=password
+
+DISABLE_AUTOMATIC_UPDATER=true
 ```
 
 ## Usage
@@ -88,3 +90,5 @@ See below for an explanation of each configuration option used within the .env f
 * ***APP_SSL*** - Allows you to force WordPress to use the SSL protocol and handle redirection. Options: `true` or `false`.
 
 * ***DB_**** - Provides options to set the local database connection details.
+
+* ***DISABLE_AUTOMATIC_UPDATER*** - Disables auto-updater. This affects Wordpress core, themes and plugins. Options: `true` or `false`.

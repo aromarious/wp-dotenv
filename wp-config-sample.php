@@ -94,6 +94,9 @@ if ( !defined('ABSPATH') )
 define('WP_HOME', (getenv('APP_SSL') == 'true' ? 'https://' : 'http://') . (getenv('APP_WWW') == 'true' ? 'www.' : '') . str_replace('www.', '', $_SERVER['HTTP_HOST']));
 define('WP_SITEURL', (getenv('APP_SSL') == 'true' ? 'https://' : 'http://') . (getenv('APP_WWW') == 'true' ? 'www.' : '') . str_replace('www.', '', $_SERVER['HTTP_HOST']) . getenv('APP_CORE'));
 
+/** Stop Updater */
+define( 'AUTOMATIC_UPDATER_DISABLED', (getenv('DISABLE_AUTOMATIC_UPDATER') == 'true' ? true : false));
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
