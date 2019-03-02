@@ -26,7 +26,6 @@ else
 fi
 
 LINE=$(cat $CONFIG_SAMPLE | grep -n '\/\* put your salts here \*\/' | awk -F: '{print $1}')
-#echo $SALT_COMMAND
 ${SALT_COMMAND} | sed "${LINE}r /dev/stdin" $CONFIG_SAMPLE > $CONFIG_TO_DEPLOY
 
 echo COMPLETE: WordPress config file generated: $CONFIG_TO_DEPLOY

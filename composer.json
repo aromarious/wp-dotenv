@@ -12,6 +12,24 @@
 		"vlucas/phpdotenv": "^2.2"
 	},
 	"scripts": {
+        "post-package-install": [
+			"@copy-dotenv-sample",
+            "echo *** Copy sample dotenv file to make .env file, and edit it ***",
+            "echo *** then Execute `composer make-env`."
+        ],
+        "post-package-update": [
+			"@copy-dotenv-sample",
+            "echo *** Copy sample dotenv file to make .env file, and edit it ***",
+            "echo *** then Execute `composer make-env`."
+        ],
+        "make-env": [
+            "echo Generating wp-config.php and index.php from .dot ....",
+            "@generate-config-with-salts",
+            "@generate-index"
+        ],
+		"copy-dotenv-sample": [
+			"vendor/aromarious/wp-dotenv/copy-dotenv-sample.sh"
+		],
 		"generate-config" : [
 			"vendor/aromarious/wp-dotenv/generate-config.sh"
 		],

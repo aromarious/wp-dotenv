@@ -52,7 +52,7 @@ Create a `.env` file in the root of your project and add/update the following co
 APP_DOCROOT=
 APP_CORE=
 APP_DEBUG=false
-APP_WWW=false
+APP_HOSTNAME=example.local
 APP_SSL=false
 
 DB_HOST=localhost
@@ -77,7 +77,7 @@ From the root of your project, you will be able to run the following composer co
 
 See below for an explanation of each configuration option used within the .env file.
 
-* ***APP_ENV*** - When set to `local`, the WordPress admin panel will display buttons in the admin panel to upgrade plugins and WordPress files. When set to `production`, the ability to plugins/software through the admin panel is disabled. 
+* ***APP_ENV*** - When set to `local`, the WordPress admin panel will display buttons in the admin panel to upgrade plugins and WordPress files. When set to `production` (except `local`), the ability to plugins/software through the admin panel is disabled. 
 
 * ***APP_DOCROOT*** - Required by ***composer generate-config***, it should be relative to your project root folder and point to where the document root is configured. It should start with a slash and not include a trailing slash. Leave blank if not applicable. Example: `/public`.
 
@@ -85,10 +85,12 @@ See below for an explanation of each configuration option used within the .env f
 
 * ***APP_DEBUG*** - Allows you to enable or disable WP debugging. Options: `true` or `false`.
 
-* ***APP_WWW*** - Allows you to force WordPress to redirect to www or non-www web addresses. Options: `true` or `false`.
+* ***APP_HOSTNAME*** - Required. Provides The hostname part of URL. (Auto configuration makes wp-cli not to work)
 
 * ***APP_SSL*** - Allows you to force WordPress to use the SSL protocol and handle redirection. Options: `true` or `false`.
 
-* ***DB_**** - Provides options to set the local database connection details.
+* ***DB_...*** - Provides options to set the local database connection details.
 
 * ***DISABLE_AUTOMATIC_UPDATER*** - Disables auto-updater. This affects Wordpress core, themes and plugins. Options: `true` or `false`.
+
+* ***DISABLE_WP_CRON*** - Disables WP_CRON feature. Options: `true` or `false`. Default: `false`

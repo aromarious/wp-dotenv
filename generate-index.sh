@@ -17,7 +17,7 @@ source "$CONFIG/.env"
 
 # Generate only if $APP_CORE is not empty
 if [ -z "$APP_CORE" ]; then
-	echo "DID NOTHING: it is not necessary to move index.php"
+	echo "DID NOTHING: not necessary to move index.php"
 	exit
 fi
 

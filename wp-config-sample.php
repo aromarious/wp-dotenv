@@ -86,22 +86,30 @@ $table_prefix  = 'wp_';
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 define('WP_DEBUG', getenv('APP_DEBUG') == 'true' ? true : false);
+
+if ( getenv('APP_ENV') != 'local' ) {
+	define('AUTOMATIC_UPDATER_DISABLED', true);
+	define('DISALLOW_FILE_EDIT', true);
+	define('DISALLOW_FILE_MODS', true);
+}
+
+/* That's all, stop editing! Happy blogging. */
+
+/** Disable WP_CRON */
+define('DISABLE_WP_CRON', (getenv('DISABLE_WP_CRON') == 'true' ? true : false));
+
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . getenv('APP_CORE') != '' ? getenv('APP_CORE') : '/');
 
-/** Automatically set paths */
-define('WP_HOME', (getenv('APP_SSL') == 'true' ? 'https://' : 'http://') . (getenv('APP_WWW') == 'true' ? 'www.' : '') . str_replace('www.', '', $_SERVER['HTTP_HOST']));
-define('WP_SITEURL', (getenv('APP_SSL') == 'true' ? 'https://' : 'http://') . (getenv('APP_WWW') == 'true' ? 'www.' : '') . str_replace('www.', '', $_SERVER['HTTP_HOST']) . getenv('APP_CORE'));
-
-/** Stop Updater */
-define( 'AUTOMATIC_UPDATER_DISABLED', (getenv('DISABLE_AUTOMATIC_UPDATER') == 'true' ? true : false));
-
-/* That's all, stop editing! Happy blogging. */
-
-/** Absolute path to the WordPress directory. */
-if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+/** set HOME, SITEURL */
+define('WP_HOME', (getenv('APP_SSL') == 'true' ? 'https://' : 'http://') . getenv('APP_HOSTNAME'));
+define('WP_SITEURL', (getenv('APP_SSL') == 'true' ? 'https://' : 'http://') . getenv('APP_HOSTNAME') . getenv('APP_CORE'));
+/** Configure directory paths if WP core is in a different directory */
+if(getenv('APP_CORE') != '') {
+	define('WP_CONTENT_URL', WP_HOME . '/wp-content');
+	define('WP_CONTENT_DIR', realpath(ABSPATH.'../wp-content/'));
+}
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
