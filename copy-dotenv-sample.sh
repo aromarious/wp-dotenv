@@ -13,7 +13,7 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 CONFIG=${DIR%/*/*/*}
 
 # copy sample dot files
-SAMPLEDOTFILE_DEV=sample-dev-env.txt
+SAMPLEDOTFILE_DEV=sample-dev.env.txt
 SAMPLEDOTFILE_PRODSTAGE=sample-prodstage.env.txt
 
 cp $DIR/$SAMPLEDOTFILE_DEV $CONFIG
