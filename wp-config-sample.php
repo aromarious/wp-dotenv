@@ -105,11 +105,6 @@ if ( !defined('ABSPATH') )
 /** set HOME, SITEURL */
 define('WP_HOME', (getenv('APP_SSL') == 'true' ? 'https://' : 'http://') . getenv('APP_HOSTNAME'));
 define('WP_SITEURL', (getenv('APP_SSL') == 'true' ? 'https://' : 'http://') . getenv('APP_HOSTNAME') . getenv('APP_CORE'));
-/** Configure directory paths if WP core is in a different directory */
-if(getenv('APP_CORE') != '') {
-	define('WP_CONTENT_URL', WP_HOME . '/wp-content');
-	define('WP_CONTENT_DIR', realpath(ABSPATH.'../wp-content/'));
-}
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
