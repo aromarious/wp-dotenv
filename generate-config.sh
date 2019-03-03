@@ -26,6 +26,11 @@ else
 fi
 
 LINE=$(cat $CONFIG_SAMPLE | grep -n '\/\* put your salts here \*\/' | awk -F: '{print $1}')
-${SALT_COMMAND} | sed "${LINE}r /dev/stdin" $CONFIG_SAMPLE > $CONFIG_TO_DEPLOY
+${SALT_COMMAND} \
+| sed "${LINE}r /dev/stdin" $CONFIG_SAMPLE \
+| sed "s!%BUILDER_DIR%!${BUILDER_DIR}!" \
+> $CONFIG_TO_DEPLOY
+
+cat template-composer.json \
 
 echo COMPLETE: WordPress config file generated: $CONFIG_TO_DEPLOY

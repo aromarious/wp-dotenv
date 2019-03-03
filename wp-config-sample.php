@@ -21,6 +21,11 @@
 /**
  * Include Dotenv library to pull config options from .env file.
  */
+if(file_exists(__DIR__ . '%BUILDER_DIR%' . '/vendor/autoload.php')) {
+	require_once __DIR__ . '/vendor/autoload.php';
+	$dotenv = new Dotenv\Dotenv(__DIR__);
+	$dotenv->load();
+}
 if(file_exists(__DIR__ . '/vendor/autoload.php')) {
 	require_once __DIR__ . '/vendor/autoload.php';
 	$dotenv = new Dotenv\Dotenv(__DIR__);
