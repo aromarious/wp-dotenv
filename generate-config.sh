@@ -31,6 +31,4 @@ ${SALT_COMMAND} \
 | sed "s!%BUILDER_DIR%!${BUILDER_DIR}!" \
 > $CONFIG_TO_DEPLOY
 
-cat template-composer.json \
-
 echo COMPLETE: WordPress config file generated: $CONFIG_TO_DEPLOY
