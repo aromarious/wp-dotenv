@@ -23,7 +23,7 @@
  */
 if(file_exists(__DIR__ . '%BUILDER_DIR%' . '/vendor/autoload.php')) {
 	require_once __DIR__ . '%BUILDER_DIR%' . '/vendor/autoload.php';
-	$dotenv = new Dotenv\Dotenv(__DIR__);
+	$dotenv = new Dotenv\Dotenv(__DIR__ . '%BUILDER_DIR%' );
 	$dotenv->load();
 }
 // elseif(file_exists(__DIR__ . '/vendor/autoload.php')) {
