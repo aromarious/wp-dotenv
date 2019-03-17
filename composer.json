@@ -12,31 +12,31 @@
 		"vlucas/phpdotenv": "^2.2"
 	},
 	"scripts": {
-        "post-package-install": [
+		"post-package-install": [
 			"@copy-dotenv-sample",
-            "echo *** Copy sample dotenv file to make .env file, and edit it ***",
-            "echo *** then Execute `composer make-env`."
-        ],
-        "post-package-update": [
+			"echo *** Copy sample dotenv file to make .env file, and edit it ***",
+			"echo *** then Execute `composer make-env`."
+		],
+		"post-package-update": [
 			"@copy-dotenv-sample",
-            "echo *** Copy sample dotenv file to make .env file, and edit it ***",
-            "echo *** then Execute `composer make-env`."
-        ],
-        "make-env": [
-            "echo Generating wp-config.php and index.php from .dot ....",
-            "@generate-config-with-salts",
-            "@generate-index"
-        ],
+			"echo *** Copy sample dotenv file to make .env file, and edit it ***",
+			"echo *** then Execute `composer make-env`."
+		],
+		"make-env": [
+			"echo Generating wp-config.php and index.php from .dot ....",
+			"@generate-config-with-salts",
+			"@generate-index"
+		],
 		"copy-dotenv-sample": [
 			"vendor/aromarious/wp-dotenv/copy-dotenv-sample.sh"
 		],
-		"generate-config" : [
+		"generate-config": [
 			"vendor/aromarious/wp-dotenv/generate-config.sh"
 		],
-		"generate-config-with-salts" : [
+		"generate-config-with-salts": [
 			"vendor/aromarious/wp-dotenv/generate-config.sh salts"
 		],
-		"generate-index" : [
+		"generate-index": [
 			"vendor/aromarious/wp-dotenv/generate-index.sh"
 		]
 	},

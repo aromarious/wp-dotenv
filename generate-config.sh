@@ -16,7 +16,7 @@ CONFIG=${DIR%/*/*/*}
 source "$CONFIG/.env"
 
 CONFIG_SAMPLE="$CONFIG/vendor/aromarious/wp-dotenv/wp-config-sample.php"
-CONFIG_TO_DEPLOY="$CONFIG$APP_DOCROOT$APP_CORE/wp-config.php"
+CONFIG_TO_DEPLOY="$CONFIG$APP_DOCROOT/wp-config.php"
 NO_SALTS_TXT="$CONFIG/vendor/aromarious/wp-dotenv/no-salts.txt"
 
 if [[ $1 = "salts" ]]; then

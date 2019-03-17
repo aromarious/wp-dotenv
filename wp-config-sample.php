@@ -22,20 +22,10 @@
  * Include Dotenv library to pull config options from .env file.
  */
 if(file_exists(__DIR__ . '%BUILDER_DIR%' . '/vendor/autoload.php')) {
-	require_once __DIR__ . '%BUILDER_DIR%' . '/vendor/autoload.php';
-	$dotenv = new Dotenv\Dotenv(__DIR__ . '%BUILDER_DIR%' );
-	$dotenv->load();
+    require_once __DIR__ . '%BUILDER_DIR%' . '/vendor/autoload.php';
+    $dotenv = new Dotenv\Dotenv(__DIR__ . '%BUILDER_DIR%' );
+    $dotenv->load();
 }
-// elseif(file_exists(__DIR__ . '/vendor/autoload.php')) {
-// 	require_once __DIR__ . '/vendor/autoload.php';
-// 	$dotenv = new Dotenv\Dotenv(__DIR__);
-// 	$dotenv->load();
-// }
-// elseif(file_exists(dirname(__DIR__) . '/vendor/autoload.php')) {
-// 	require_once dirname(__DIR__) . '/vendor/autoload.php';
-// 	$dotenv = new Dotenv\Dotenv(dirname(__DIR__));
-// 	$dotenv->load();
-// }
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -56,6 +46,11 @@ define('DB_CHARSET', 'utf8');
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
 
+// ========================
+// Custom Content Directory
+// ========================
+define( 'WP_CONTENT_DIR', __DIR__ . getenv('APP_CONTENT'));
+define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . getenv('APP_CONTENT') );
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -93,9 +88,9 @@ $table_prefix  = 'wp_';
 define('WP_DEBUG', getenv('APP_DEBUG') == 'true' ? true : false);
 
 if ( getenv('APP_ENV') != 'local' ) {
-	define('AUTOMATIC_UPDATER_DISABLED', true);
-	define('DISALLOW_FILE_EDIT', true);
-	define('DISALLOW_FILE_MODS', true);
+    define('AUTOMATIC_UPDATER_DISABLED', true);
+    define('DISALLOW_FILE_EDIT', true);
+    define('DISALLOW_FILE_MODS', true);
 }
 
 /* That's all, stop editing! Happy blogging. */
@@ -105,7 +100,7 @@ define('DISABLE_WP_CRON', (getenv('DISABLE_WP_CRON') == 'true' ? true : false));
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . getenv('APP_CORE') != '' ? getenv('APP_CORE') : '/');
+    define('ABSPATH', dirname(__FILE__) . getenv('APP_CORE') != '' ? getenv('APP_CORE') : '/');
 
 /** set HOME, SITEURL */
 define('WP_HOME', (getenv('APP_SSL') == 'true' ? 'https://' : 'http://') . getenv('APP_HOSTNAME'));
