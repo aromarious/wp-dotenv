@@ -50,7 +50,7 @@ define('DB_COLLATE', '');
 // Custom Content Directory
 // ========================
 define( 'WP_CONTENT_DIR', __DIR__ . getenv('APP_CONTENT'));
-define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . getenv('APP_CONTENT') );
+define( 'WP_CONTENT_URL', (getenv('APP_SSL') == 'true' ? 'https://' : 'http://') . getenv('APP_HOSTNAME') . getenv('APP_CONTENT') );
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -100,7 +100,7 @@ define('DISABLE_WP_CRON', (getenv('DISABLE_WP_CRON') == 'true' ? true : false));
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-    define('ABSPATH', dirname(__FILE__) . getenv('APP_CORE') != '' ? getenv('APP_CORE') : '/');
+    define('ABSPATH', __DIR__ . getenv('APP_CORE') != '' ? getenv('APP_CORE') : '/');
 
 /** set HOME, SITEURL */
 define('WP_HOME', (getenv('APP_SSL') == 'true' ? 'https://' : 'http://') . getenv('APP_HOSTNAME'));
